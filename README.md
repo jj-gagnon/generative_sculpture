@@ -1,6 +1,6 @@
 
 
-### Thinking Out Loud
+## Thinking Out Loud
 
 
 #### End size
@@ -21,19 +21,13 @@
 #### Ways to attach base shapes
 - metal or wooden dowels with glue
 
-#### Structure integrity
+#### Structural integrity
 - Could theoretically use lighter / less stronger materials on the outside. Or in the less weight bearing parts. 
+- Indoor sculpture vs outdoor. Weather resistant. 
+- Also if it's a bigger sculpture make a way for it to disassemble 
 
-Need to think about what shape this whole thing is in. 
-
-And depending on its size. Where it will be when done. 
-
-Indoor sculpture vs outdoor. Weather resistant. 
-
-Also if it's a bigger sculpture 
-Make a way for it to disassemble 
-
-This whole time I was picturing a sort of homogenous structure or pattern. 
+#### Homogenous vs heterogenous style
+- This whole time I was picturing a sort of homogenous structure or pattern. 
 But the algorithm could change. 
 Like it's straight lines brutal at the start and becomes organic 
 
