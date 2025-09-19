@@ -110,17 +110,17 @@ at least to get some possible ideas/inspiriation
 ## The process so far. 
 
 - used python's open3d to make two generative tree models. 
-basic model: manually set:
+	- basic model: manually set:
 number of atoms
 probability of a branch being started. 
 probability of a branch dying. 
 
-- the second model has two different parameters. 
+	- the second model has two different parameters. 
 avg number of active branches
 avg length of a branch. 
 which dynamically calculates different characteristics of the tree structure and changes branch start / end probablity. 
 
-- both of these models are stochastic. 
+	- both of these models are stochastic. 
 
 
 
