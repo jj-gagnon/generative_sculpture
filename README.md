@@ -27,11 +27,10 @@
 - Also if it's a bigger sculpture make a way for it to disassemble 
 
 #### Homogenous vs heterogenous style
-- This whole time I was picturing a sort of homogenous structure or pattern. 
-But the algorithm could change. 
-Like it's straight lines brutal at the start and becomes organic 
+- This whole time I was picturing a sort of homogenous structure or pattern. But the algorithm could change. Like it's straight lines brutal at the start and becomes organic 
 
-its strange that this whole time i've been picturing very much with something like arms like an octopus. 
+#### Arms/branches or something else. 
+ - its strange that this whole time i've been picturing very much with something like arms like an octopus. 
 and that is not at all necessary. 
 i guess because of the tree structure i made first. 
 but also a lot of fractal patterns and botanical structure has things like "arms" or branches. 
@@ -40,15 +39,15 @@ I could still have pins in fixed locations. but maybe each base shape doesnt nee
 i pin through the central axis would be intersting. 
 would be an easy way to get arbitrary degree of rotation.
 
-
-a special shape. 
+#### Increasing the utility of one shape
+- a special shape. 
 a triangular prism of sorts. 
 such that there is a wide range of anlge of the faces, depending on which face is on the bottom. 
 or
 even more versitile
 would be one shape that when taking two of that shape and stacking them, the top face can have a wide range of angles, relative to the bottom face (top face of the top shape, bottom face of the bottom shape)
 
-i guess tessellation/tiling is a whole thing. 
+- i guess tessellation/tiling is a whole thing. 
 https://en.wikipedia.org/wiki/Tessellation
 3d tessellation:
 https://en.wikipedia.org/wiki/Honeycomb_%28geometry%29
