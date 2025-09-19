@@ -3,19 +3,26 @@
 ### Thinking Out Loud
 
 
-##### End size
+#### End size
  - Roughly how many pieces. 
  - What size of piece what size of total. Physically. 
 
 
-What materials could I use?
-Wood
-Metal
-3d print 
-Sand glue
-Resin cast 
+#### What materials could I use?
+- Wood
+- Metal
+- 3d print 
+- Sand glue
+- Resin cast 
 
-Could theoretically use lighter / less stronger materials on the outside. Or in the less weight bearing parts. 
+#### Terminology
+- base shape / atom
+
+#### Ways to attach base shapes
+- metal or wooden dowels with glue
+
+#### Structure integrity
+- Could theoretically use lighter / less stronger materials on the outside. Or in the less weight bearing parts. 
 
 Need to think about what shape this whole thing is in. 
 
