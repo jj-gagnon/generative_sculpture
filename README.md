@@ -1,6 +1,51 @@
+14:56 PM Sunday, September 28, 2025-09-28
+made branches end if they would intersect the strcture. 
+but messed up the branch counter and branching probablities. 
+
+in the last few days i did a lot of thinking of potential total shapes. 
+
+like the idea of realisti tree structure with decreasing scale. 
+also the leaves will be in a sphere or cube shape. 
+
+
+
+
+
 
 
 ## Thinking Out Loud
+
+
+
+Other base shapes 
+Cylinder 
+Board / plate 
+Pyramid 
+Triangular prism 
+Cubes and  cylinders would be very flexible .
+Because cylinders could come out at any angle. 
+Also scale of base should could change. 
+
+Damn also cube place cubes in points in space. Not touching each other. 
+Then just put cylinders from center to to center of the cubes. 
+That's kind of crazy. 
+
+Hmm I've been picturing a sort of dense spiral for a while and didn't have any idea of how to do it. 
+Hmm nvm I still don't. 
+Was thinking of finding a very specific shape that when stacked it spirals perfectly. And the angle of the sides has to be exact to make that happen. 
+But it would make a circle easier. 
+A spiral has to have it's angle changed as it goes. 
+
+
+Could make a more regular looking tree. 
+And the truck would be scale down shapes at each branch. To more details.
+The trunk would just be one really thick branch. 
+Could change the material as it gets closer to leaves. 
+Wood cubes. 3d printed arbitrary angled pieces. 
+And after some branches metal dowels. 
+Fuckiest matériel for leaves like styrofoam of something 
+Glass 
+
 
 
 #### End size
@@ -114,13 +159,20 @@ at least to get some possible ideas/inspiriation
 number of atoms
 probability of a branch being started. 
 probability of a branch dying. 
-
 	- the second model has two different parameters. 
-avg number of active branches
-avg length of a branch. 
-which dynamically calculates different characteristics of the tree structure and changes branch start / end probablity. 
-
+	avg number of active branches
+	avg length of a branch. 
+	which dynamically calculates different characteristics of the tree structure and changes branch start / end probablity. 
 	- both of these models are stochastic. 
+
+11:57 AM Monday, September 22, 2025-09-22
+Got simple stacking on rotated cubes in python. 
+
+next step add constant amount of rotation to all base shapes in the second tree model. 
+this will require making a custom base shape object to store its current rotation (and center for more complex base shapes)
+
+
+
 
 
 
