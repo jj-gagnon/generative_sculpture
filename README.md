@@ -10,6 +10,18 @@ also the leaves will be in a sphere or cube shape.
 
 
 
+for tree structure idea. 
+to use metal, wood, and 3d print in that order from the base to the leaves. 
+so the base and first branches are metal, middle branches are wood, and end branches are 3d print.
+metal is stronger so it synergies with the base. 
+wood is wood. lol
+and 3d print is weakest but also the most detailed. which synergies with ends of the branches. 
+also the detail could be super fine at the leaves. 
+becasue i can generate a chunk of base shapes at the end, which are really small and detailed, and print that as one piece. 
+which is crazy. 
+
+
+
 
 
 
