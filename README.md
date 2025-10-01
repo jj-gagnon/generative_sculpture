@@ -1,15 +1,18 @@
-14:56 PM Sunday, September 28, 2025-09-28
-made branches end if they would intersect the strcture. 
-but messed up the branch counter and branching probablities. 
-
-in the last few days i did a lot of thinking of potential total shapes. 
-
-like the idea of realisti tree structure with decreasing scale. 
-also the leaves will be in a sphere or cube shape. 
 
 
 
 
+
+
+
+
+
+
+
+
+## Thinking Out Loud
+
+#### Way to change material for natural tree structure
 for tree structure idea. 
 to use metal, wood, and 3d print in that order from the base to the leaves. 
 so the base and first branches are metal, middle branches are wood, and end branches are 3d print.
@@ -19,14 +22,6 @@ and 3d print is weakest but also the most detailed. which synergies with ends of
 also the detail could be super fine at the leaves. 
 becasue i can generate a chunk of base shapes at the end, which are really small and detailed, and print that as one piece. 
 which is crazy. 
-
-
-
-
-
-
-## Thinking Out Loud
-
 
 
 #### Other base shapes 
@@ -44,14 +39,14 @@ Then just put cylinders from center to to center of the cubes.
 That's kind of crazy. 
 
 #### Final shapes
-##### Spiral
+###### Spiral
 Hmm I've been picturing a sort of dense spiral for a while and didn't have any idea of how to do it. 
 Hmm nvm I still don't. 
 Was thinking of finding a very specific shape that when stacked it spirals perfectly. And the angle of the sides has to be exact to make that happen. 
 But it would make a circle easier. 
 A spiral has to have it's angle changed as it goes. 
 
-#### Natural tree
+###### Natural tree
 Could make a more regular looking tree. 
 And the truck would be scale down shapes at each branch. To more details.
 The trunk would just be one really thick branch. 
@@ -188,6 +183,23 @@ this will require making a custom base shape object to store its current rotatio
 
 
 
+14:56 PM Sunday, September 28, 2025-09-28
+made branches end if they would intersect the strcture. 
+but messed up the branch counter and branching probablities. 
+
+in the last few days i did a lot of thinking of potential total shapes. 
+
+like the idea of realisti tree structure with decreasing scale. 
+also the leaves will be in a sphere or cube shape. 
+
+
+
+
+Sept 30
+did more work on python model. 
+implemented a way so that shapes wont be placed inside each other. 
+
+had a consultation at the digi lab. 
 
 
 
