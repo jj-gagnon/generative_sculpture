@@ -131,7 +131,20 @@ so that the arm would looked sorted scaled, because of the repetition.
 
 
 ## The Plan
-- map out the sort of current possible projection of the entire process. 
+3 project stages, 3 weeks each, with a week buffer incase i need more time. 
+- R and D
+- Make the algorithm, digital model, and instructions (dimensions/angles on how to build it)
+- Build it
+
+#### R and D
+###### Software
+- Angled blocks / handling multiple different base shapes
+- click different blocks together in a way that approximates a curve
+- model with only cubes and thing cylinders. 
+###### Ideas
+- find patterns / algorithms, and try implementing them if there is time. 
+###### Hardware
+- Talk to techs about good shapes (easy to make, easy to connect, has angles / can pick arbitrary angel)
 
 
 
@@ -200,6 +213,13 @@ did more work on python model.
 implemented a way so that shapes wont be placed inside each other. 
 
 had a consultation at the digi lab. 
+
+
+oct 1st
+Did some research on github. 
+figured out how to show 3d meshes on the web. 
+
+
 
 
 
