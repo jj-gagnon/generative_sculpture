@@ -29,7 +29,7 @@ which is crazy.
 
 
 
-Other base shapes 
+#### Other base shapes 
 Cylinder 
 Board / plate 
 Pyramid 
@@ -38,17 +38,20 @@ Cubes and  cylinders would be very flexible .
 Because cylinders could come out at any angle. 
 Also scale of base should could change. 
 
-Damn also cube place cubes in points in space. Not touching each other. 
+#### Only cubes connected with thinner cylinders
+Also cube place cubes in points in space. Not touching each other. 
 Then just put cylinders from center to to center of the cubes. 
 That's kind of crazy. 
 
+#### Final shapes
+##### Spiral
 Hmm I've been picturing a sort of dense spiral for a while and didn't have any idea of how to do it. 
 Hmm nvm I still don't. 
 Was thinking of finding a very specific shape that when stacked it spirals perfectly. And the angle of the sides has to be exact to make that happen. 
 But it would make a circle easier. 
 A spiral has to have it's angle changed as it goes. 
 
-
+#### Natural tree
 Could make a more regular looking tree. 
 And the truck would be scale down shapes at each branch. To more details.
 The trunk would just be one really thick branch. 
