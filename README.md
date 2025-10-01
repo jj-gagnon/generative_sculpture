@@ -218,7 +218,10 @@ had a consultation at the digi lab.
 oct 1st
 Did some research on github. 
 figured out how to show 3d meshes on the web. 
+updated the readme with more information and a plan. 
 
+started on implemented a second shape to go with the cube. 
+its difficult. 
 
 
 
