@@ -223,16 +223,58 @@ updated the readme with more information and a plan.
 started on implemented a second shape to go with the cube. 
 its difficult. 
 
+in class i tried implementing different sizes of cubes in python open3d adn was having a rough time with it. 
+(although it was also late in the evening. I probably still try it again later)
+But was discouraged with it. 
+
+
+
+Oct 4th
+spent a good chunk of time setting up c++ openframeworks. Got it setup and did a little bench test with 20000 rotating cubes on screen. 
+Was a pain to install and get going. 
+
+Also setup threejs again. and did a similar stress test. 
+and got about 10000 cubes which suprised me. Because it was better than i thought it would be. 
+
+so honestly i might switch to threejs. because its instant visual feedback. and the compile times of OF were like 10 seconds every single time and that is not conducive to learning by trial and error. 
+spent about an hour reading nature comp beauty book. 
+
+
+
+oct 5th
+went to work on gen sculpt in threejs
+but got distracted for several hours and made many small rotating cubes with good antialiasing. 
+very cool 
+
+read more of the book. 
+very cool stuff
 
 
 
 
+oct 6th
+did a lot of work figuring out something dumb with parent child relative transformations
+
+did a lot fo work transfering my python code to three js. 
+and realized that i need to maybe change the whole algorithm because i am using parent child spaces instead of just global. 
+
+
+
+oct 7th.
+did a lot of work debuggign python to js conversion. 
+finally got it working. 
+
+did a random walk program. 
+
+did a transparency test. 
+not related but very cool. 
+worked the whole day on those things. 
+
+also read a little of the beauty comp book about mcmp (or soemthing liek that) fractals. 
+and implemented it in touchdesigner. 
 
 
 
 
-
-
-
-
-
+oct 8th
+got orbit controls working for threejs
