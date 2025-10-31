@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 ## Thinking Out Loud
 
 #### Way to change material for natural tree structure
@@ -278,3 +266,23 @@ and implemented it in touchdesigner.
 
 oct 8th
 got orbit controls working for threejs
+
+oct 
+at some point before i got i sick i had a few long sessions. 
+
+
+
+oct 19th
+was very sick for a week. 
+thought about materials. 
+
+i wish i could come up with soemthing clever adn cheap. because i really dont want to have to pay hundreds for this thing. 
+
+tried making an actually sculptable virtual version. 
+and its getting really annoying again with the mesh position vs geo translate. 
+
+
+missed writing down like 4 sessions from the week behind the 28th of oct. 
+did good work on an actual sculptable version of the tree. 
+
+also did td stuff for another projce
