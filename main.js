@@ -146,8 +146,7 @@ function main() {
     // return
 
     first_cube.userData.h = 1
-    // const total_num_cubes = 1000 * 4
-    const total_num_cubes = 2**9
+    const total_num_cubes = 1000 * 4
 
     let top_cubes = [first_cube]
     let cube_new;
@@ -256,10 +255,6 @@ function main() {
 
         first_cube.traverse(function (a) {
 
-            let s = Math.sin(time) * 0.001
-            a.rotateX(s)
-            a.rotateZ(s)
-            a.rotateY(s)
 
             // a.rotation.x = time * a.userData.h * 0.01
             // a.rotation.x = (time + (800/a.userData.h)) * 0.5
