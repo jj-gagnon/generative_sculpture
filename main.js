@@ -106,9 +106,9 @@ function main() {
     // first_cube.add(cube_3)
 
     
-    const total_num_cubes = 500*10
-    let desired_num_branches = 10
-    let desired_branch_length =10
+    const total_num_cubes = 900
+    let desired_num_branches = 8
+    let desired_branch_length = total_num_cubes/desired_num_branches/2
 
     
 
@@ -232,10 +232,11 @@ function main() {
 	function render( time ) {
 
 		time *= 0.001; // convert time to seconds
-		renderer.render( scene, camera );
+		
         
         controls.update(time);
         controls.update();
+        renderer.render( scene, camera );
 
 
 		requestAnimationFrame( render );
