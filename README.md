@@ -1,5 +1,5 @@
 # V1
-![image info](./images/.png)
+![image info](./images/first.png)
 
 ### Description
 This version is where I transfered my python code to threejs. So this represents a lot of work that I did in python as well. 
