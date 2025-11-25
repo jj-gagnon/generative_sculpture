@@ -1,5 +1,5 @@
 # Version 2
-![image info](./images/first.png)
+![image info](./read_me_images/simple.png)
 
 
 ### Description
