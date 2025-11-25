@@ -63,8 +63,8 @@ function main() {
     // let h = 1080 - 170
     let w = 1080 + 650
     let h = 1920 - 100
-    let scale = 0.5
-    renderer.setSize(w * scale, h * scale, true)
+    // let scale = 0.5
+    // renderer.setSize(w * scale, h * scale, true)
     // renderer.setClearColor(new THREE.Color(1, 1, 1))
 
 
@@ -147,7 +147,7 @@ function main() {
 
     first_cube.userData.h = 1
     // const total_num_cubes = 1000 * 4
-    const total_num_cubes = 2**10
+    const total_num_cubes = 2**9
 
     let top_cubes = [first_cube]
     let cube_new;
