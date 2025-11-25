@@ -146,7 +146,8 @@ function main() {
     // return
 
     first_cube.userData.h = 1
-    const total_num_cubes = 1000 * 4
+    // const total_num_cubes = 1000 * 4
+    const total_num_cubes = 2**10
 
     let top_cubes = [first_cube]
     let cube_new;
@@ -188,7 +189,7 @@ function main() {
             // cube_new.rotation.y += rot * 
             // cube_new.rotation.y -= rot * 
             // cube_new.rotation.y += rot + 10
-            cube_new.rotation.x += pi * 0.01
+            cube_new.rotation.x += pi /12
             // cube_new.rotation.y = pi * 0.001
 
 
@@ -210,7 +211,7 @@ function main() {
 
             branch_cube.position.y = box_size_y
 
-            branch_cube.rotation.z = rot * -1
+            branch_cube.rotation.z = rot * -4
             // branch_cube.rotation.y -= rot * 2
             branch_cube.rotation.y = pi / 4
             // branch_cube.rotation.y += rot
