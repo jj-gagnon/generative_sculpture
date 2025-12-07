@@ -116,7 +116,7 @@ function main() {
     // let scale_y = 0.8
     // let scale_z = 0.8
 
-    let scale_x_y = 0.7
+    let scale_x_y = 0.8
 
     let scale_x = scale_x_y
     let scale_y = scale_x_y
@@ -144,7 +144,8 @@ function main() {
             top_cube.add(cube_new)
 
 
-            cube_new.rotation.x += pi * 0.01
+            // cube_new.rotation.x += pi * 0.01
+            cube_new.rotation.x = pi /4
 
             // cube_new.scale.setScalar(scale_factor)
             cube_new.scale.x = scale_x
