@@ -53,10 +53,10 @@ function main() {
     const fov = 50;
     const aspect = w / h; // the canvas default
     const near = 0.1;
-    const far = 1000;
+    const far = 100000;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.z = 50
-    camera.position.y = 20
+    camera.position.z = 300
+    camera.position.y = 80
     // camera.position.x = 20
 
 
@@ -132,7 +132,7 @@ function main() {
     let scale_y = scale_factor
     let scale_z = scale_x_y
 
-    let non_branch_length =  10
+    let non_branch_length = 10
 
     while (cube_counter < total_num_cubes) {
 
@@ -141,23 +141,23 @@ function main() {
         let temp_top_cubes = top_cubes
         top_cubes = []
 
-        non_branch_length -= 2
+        non_branch_length -= 1
 
         for (let i = 0; i < temp_top_cubes.length; i++) {
             let top_cube = temp_top_cubes[i]
 
-            
 
-            for (let non_branch = 0; non_branch < non_branch_length; non_branch++){
-            
+
+            for (let non_branch = 0; non_branch < non_branch_length; non_branch++) {
+
                 let geo = new THREE.BoxGeometry(box_size_x, box_size_y, box_size_z)
                 let cube_new = new THREE.Mesh(geo, material)
-                cube_new.position.y = box_size_y 
+                cube_new.position.y = box_size_y
                 cube_new.geometry.translate(box_size_x / 2, box_size_y / 2, 0)
-                
+
                 cube_new.rotation.z = Math.random() - 0.5
 
-                
+
 
                 top_cube.add(cube_new)
                 top_cube = cube_new
@@ -165,7 +165,7 @@ function main() {
 
             for (let b = 0; b < 2; b++) {
 
-                let x_rot = pi / 180 * 0
+                let x_rot = pi / 180 * 30
                 let y_rot = pi / 180 * 30
                 let z_rot = pi / 180 * 30
                 // let scale = Math.sqrt(0.5 ** 2 + 0.5 ** 2) // for 45 degrees
@@ -277,8 +277,11 @@ function main() {
         // controls.update();
 
         // first_cube.traverse(function (a) {
-        // let s = THREE.MathUtils.mapLinear(Math.sin(time), -1, 1, 0, 1)
-        // a.rotation.z = s
+// 
+            // let s = Math.cos(time * 0.5) * 0.0002
+            // a.rotateZ(s)
+            // a.rotateX(s)
+            // a.rotateY(s)
         // })
 
         // a.scale.setScalar(Math.sin(time) / 2 + 0.5)
