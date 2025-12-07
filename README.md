@@ -12,6 +12,8 @@ Put link here.
 ### Examples
 
 ![alt text](./read_me_images/1.png)
+![alt text](./read_me_images/2.png)
+![alt text](./read_me_images/3.png)
 
 
 	
