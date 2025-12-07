@@ -11,7 +11,7 @@ Put link here.
 
 ### Examples
 
-![alt text](./1.png)
+![alt text](./read_me_images/1.png)
 
 
 	
