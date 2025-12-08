@@ -4,7 +4,7 @@
 ### Description
 Two major things happened with this version:
 1. I did a lot of work to make sure that the digital sculpture match the very specific dimensions of the planned physical sculpture. 
-This was most challenging in being able to precisely place/orient the pivot point for each piece's rotation. 
+<br>This was most challenging in being able to precisely place/orient the pivot point for each piece's rotation. 
 
 2. I stumbled upon a way to interesting way to code which piece gets which amount of rotation.
 The idea is that in this binary tree, I use the index, from the left to right, of the current layer the piece is on. 
