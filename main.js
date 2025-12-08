@@ -2,32 +2,40 @@
 import * as THREE from 'three';
 console.log('-----------------------------------------------------')
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
 
-
-
-
-function shuffle(array) {
-    let currentIndex = array.length;
-
-    // While there remain elements to shuffle...
-    while (currentIndex != 0) {
-
-        // Pick a remaining element...
-        let randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        // And swap it with the current element.
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
-    }
-}
-
+import GUI from 'https://cdn.jsdelivr.net/npm/lil-gui@0.21/+esm';
 
 function main() {
 
+    const gui = new GUI({ width: 700 });
+    gui.add(document, 'title');
 
-    const canvas = document.querySelector('#c');
+    let gui_obj = {
+
+
+        y_multiply: 1.0,
+        y_exponent: 1.0,
+        y_add: 0,
+        z_multiply: 1.0,
+        z_exponent: 1.0,
+        z_add: 0
+
+
+    }
+
+    const pi = Math.PI
+
+    gui.add(gui_obj, 'y_multiply', -5, 5).listen()
+    gui.add(gui_obj, 'y_exponent', -10, 10).listen()
+    gui.add(gui_obj, 'y_add', -2 * pi, pi * 2).listen()
+    gui.add(gui_obj, 'z_multiply', -5, 5).listen()
+    gui.add(gui_obj, 'z_exponent', -10, 10).listen()
+    gui.add(gui_obj, 'z_add', -2 * pi, pi * 2).listen()
+
+
+
+
+
     const renderer = new THREE.WebGLRenderer(
         {
             canvas: document.querySelector("canvas"),
@@ -40,14 +48,10 @@ function main() {
     renderer.setClearColor(new THREE.Color(1, 1, 1))
 
 
-    const pi = Math.PI
-
     let w = 1080 + 650
     let h = 1920 - 100
     let scale = 0.5
     renderer.setSize(w * scale, h * scale, true)
-
-
 
 
     const fov = 50;
@@ -55,20 +59,12 @@ function main() {
     const near = 0.1;
     const far = 1000;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.z = 50
-    camera.position.y = 20
-    // camera.position.x = 20
-
-
-
-    // camera.position.x = camera.position.z / 2
-    // camera.position.y = camera.position.z / 2
-
+    camera.position.z = 70
+    camera.position.y = 40
+    camera.position.x = 80
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.target = new THREE.Vector3(0, camera.position.y, 0)
-    // console.log(controls.target)
-
 
     const scene = new THREE.Scene();
 
@@ -91,12 +87,11 @@ function main() {
     const axesHelper = new THREE.AxesHelper(15);
     scene.add(axesHelper)
 
-    let box_size_x = 1
+    let box_size_x = 1.3
     let box_size_y = 6;
-    let box_size_z = 1;
+    let box_size_z = 1.3;
 
     const geometry = new THREE.BoxGeometry(box_size_x, box_size_y, box_size_z);
-    // const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 }); // greenish blue
     const material = new THREE.MeshStandardMaterial(); // greenish blue
     material.color.set(0.5, 0.5, 1)
     // material.transparent = true
@@ -113,130 +108,63 @@ function main() {
     first_cube.userData.h = 1
 
     const total_num_cubes = 2 ** 6
-    // const total_num_cubes = 3
 
     let top_cubes = [first_cube]
-    let cube_new;
     let cube_counter = 1
-    let last_num_cubes = 0;
-
-    let scale_factor = 1
-
-    // let scale_x = 0.8
-    // let scale_y = 0.8
-    // let scale_z = 0.8
-
-    let scale_x_y = 1.1
-
-    let scale_x = scale_x_y
-    let scale_y = scale_factor
-    let scale_z = scale_x_y
-
-    let non_branch_length = 10
 
     let branch_counter = 0
 
+    let prev_box_size_y = 6
+
     while (cube_counter < total_num_cubes) {
-
-
 
         let temp_top_cubes = top_cubes
         top_cubes = []
 
-        non_branch_length -= 2
-
         for (let i = 0; i < temp_top_cubes.length; i++) {
             let top_cube = temp_top_cubes[i]
-
-
-
-            for (let non_branch = 0; non_branch < non_branch_length; non_branch++) {
-                continue
-                let geo = new THREE.BoxGeometry(box_size_x, box_size_y, box_size_z)
-                let cube_new = new THREE.Mesh(geo, material)
-                cube_new.position.y = box_size_y
-                cube_new.geometry.translate(box_size_x / 2, box_size_y / 2, 0)
-
-                cube_new.rotation.z = Math.random() - 0.5
-
-
-
-                top_cube.add(cube_new)
-                top_cube = cube_new
-            }
 
             let g = new THREE.Group()
             let s
             s = THREE.MathUtils.mapLinear(i, 0, temp_top_cubes.length, Math.PI / 2.8, 0)
-            branch_counter ++;
+            branch_counter++;
+            console.log(cube_counter)
+
+            
+            if (cube_counter == 3) {
+                box_size_y = 3
+                console.log('here')
+            }
+
             for (let b = 0; b < 2; b++) {
-                // s = THREE.MathUtils.mapLinear(cube_counter, 0, total_num_cubes*2,  Math.PI /5, Math.PI /8)
 
-                // s = THREE.MathUtils.mapLinear(i, 0, temp_top_cubes.length,   Math.PI / 1.5, 0)
-
-                let cube_counter_fract = 3
-
-                let x_rot = pi / 180 * 0
-                let y_rot = pi / 180 * 0
-                let z_rot = pi / 180 * 30
-                let scale = Math.sqrt(0.5 ** 2 + 0.5 ** 2) // for 45 degrees
-                // let scale = 1
-
-                if (cube_counter < 2 ** 3 - 1) {
-
-                } else {
-
-                }
 
                 let geo = new THREE.BoxGeometry(box_size_x, box_size_y, box_size_z)
 
-
-
-                // let mat = new THREE.MeshStandardMaterial(); // greenish blue
-                // mat.color.set(0.5, 0.5, 1)                
-                // mat.transparent = true
-                // mat.opacity = 0.5
-                // mat.color.set(
-                // Math.random(),
-                // Math.random(),
-                // Math.random())
-
                 let cube_new = new THREE.Mesh(geo, material)
+                cube_new.userData.i = i
+                cube_new.userData.layer_length = temp_top_cubes.length
+                cube_new.userData.is_cube = true
+
+
+                // cube_new.position.y = box_size_y + box_size_x
+                cube_new.position.y = prev_box_size_y + box_size_x
 
 
 
-                cube_new.position.y = box_size_y + box_size_x / 2
 
-
-
-                // cube_new.geometry.translate(box_size_x / 2, box_size_y / 2, 0)
                 cube_new.geometry.translate(box_size_x / 2, box_size_y / 2, 0)
 
-
-                // s = s**1.5
-
                 if (b == 0) {
-                    cube_new.position.x = box_size_x * -1
+                    cube_new.position.x = box_size_x * -1.2
 
-                    // cube_new.rotation.z = s * 0.4
                 } else {
-                    cube_new.position.x = box_size_x
+                    cube_new.position.x = box_size_x * 1.2
 
                     cube_new.rotation.y = pi
-
-
-                    // cube_new.rotation.z = s * 1
-
                 }
 
-                // cube_new.rotation.z = pi / 180 * 20
-                // cube_new.rotation.z = pi / 5
-
-                // cube_new.rotation.z = s **1.5
-                // cube_new.rotation.z = (Math.PI / 3 - s) **0.2
-
                 // cube_new.rotation.z = s ** 1.5 + 0.03
-                cube_new.rotation.z = s 
 
 
 
@@ -244,125 +172,171 @@ function main() {
                 // cube_new.add(coord)
 
                 top_cubes.push(cube_new)
-
                 g.add(cube_new)
 
-
                 cube_counter = cube_counter + 1
-            }
 
-            // let c = new THREE.AxesHelper(15)
-            // c.position.y = box_size_y
-            // g.add(c)
+            } // for (let b = 0; b < 2; b++) {
 
+            
             g.position.x = box_size_x / 2
 
+            // g.rotation.y = (pi / 3 - s) + pi / 10
 
-            // g.rotation.y = s ** 20 + pi/5
-            // g.rotation.y = (pi/3 - s) + pi/10
-            // g.rotation.y = (pi/3 - s) * 0.5
-            g.rotation.y = s 
-
-
-            // g.rotation.y = pi/20
-
-
-
-
-
+            g.userData.i = i
+            g.userData.layer_length = temp_top_cubes.length
 
             top_cube.add(g)
 
+        } // (let i = 0; i < temp_top_cubes.length; i++) {
 
-
-        }
-
+        prev_box_size_y = box_size_y
 
     }
 
-    let trunk_length = 7
+    let trunk_length = 8
+    let geo = new THREE.BoxGeometry(box_size_x, box_size_y, box_size_z)
+    let trunk_cube = new THREE.Mesh(geo, material)
     for (let i = 0; i < trunk_length; i++) {
         let geo = new THREE.BoxGeometry(box_size_x, box_size_y, box_size_z)
-        geo.translate(0,box_size_y * -1 * i, 0)
+        geo.translate(0, box_size_y * -1 * i, 0)
         let cube_new = new THREE.Mesh(geo, material)
 
-        first_cube.add(cube_new)
+        trunk_cube.add(cube_new)
 
     }
 
+    trunk_cube.position.y = 20
+    trunk_cube.rotation.z = pi / 2
+    trunk_cube.position.x = (trunk_length * box_size_y) / 2 * -1
+    // scene.add(trunk_cube)
 
-    console.log(branch_counter)
+
+
+    let ruler_z_length = 13
+    let ruler_x_length = 11
+
+
+    let ruler_x_geo = new THREE.BoxGeometry(box_size_x, box_size_y * ruler_z_length, box_size_z)
+    let ruler_x = new THREE.Mesh(ruler_x_geo, material)
+    scene.add(ruler_x)
+
+    ruler_x.position.y = 30
+    ruler_x.rotation.z = pi / 2
+    ruler_x.rotation.y = pi / 2
+
+
+    let ruler_y_geo = new THREE.BoxGeometry(box_size_x, box_size_y * ruler_x_length, box_size_z)
+    let ruler_y = new THREE.Mesh(ruler_y_geo, material)
+
+    ruler_y.position.y = 30
+    ruler_y.rotation.z = pi / 2
+    // ruler_x.rotation.y = pi/2
+    scene.add(ruler_y)
+
+
+
+
+
+
+
     scene.add(first_cube)
 
 
 
     resizeCanvasToDisplaySize();
 
+    function getCenterPoint(mesh) {
+        var geometry = mesh.geometry;
+        geometry.computeBoundingBox();
+        var center = new THREE.Vector3();
+        geometry.boundingBox.getCenter(center);
+        mesh.localToWorld(center);
+        return center;
+    }
 
 
-    // console.log('end')
+    let center_sphere_g = new THREE.SphereGeometry(2)
+    let center_sphere = new THREE.Mesh(center_sphere_g, material)
+    scene.add(center_sphere)
 
-    // controls.update(0.001);
 
-    // let a = []
-    // first_cube.traverse(function (child) {
-    //     if (child.parent) {
-    //         child.updateMatrixWorld();
-    //         child.applyMatrix4(child.parent.matrixWorld);
-    //         if (child.geometry != null){
-    //             a.push(child.geometry)
-    //         }
 
-    //     }
+    gui_obj.z_multiply = 0.5
+    gui_obj.y_add = 0.716283125018474
 
-    // });
-    // console.log(a)
 
-    // let merged = THREE.BufferGeometryUtils.mergeGeometries()
+    // gui_obj = {
 
-    // scene.add(merged)
-    // renderer.render(scene, camera)
-    // return
 
+    //     y_multiply: 1.0,
+    //     y_exponent: 1.0,
+    //     y_add: 0,
+    //     z_multiply: 1.0,
+    //     z_exponent: 1.0,
+    //     z_add: 0
+
+
+    // }
 
     function render(time) {
 
         time *= 0.001; // convert time to seconds
 
 
+
         controls.update(time);
-        // controls.update();
+        var target = new THREE.Vector3();
 
-        // first_cube.traverse(function (a) {
-        // let s = THREE.MathUtils.mapLinear(Math.sin(time), -1, 1, 0, 1)
-        // a.rotation.z = s
-        // })
+        let centers = []
+        first_cube.traverse(function (a) {
 
-        // a.scale.setScalar(Math.sin(time) / 2 + 0.5)
+            if (a instanceof THREE.Group) {
+                let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 3, 0)
+                // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, 0, Math.PI / 3)
 
-        // a.rotation.x = time * a.userData.h * 0.01
-        // a.rotation.x = (time + (800/a.userData.h)) * 0.5
-
-        // a.rotation.z = time * 0.1
-        // a.rotation.z = Math.sin(time * (1 + a.userData.h/800) *0.1 ) * 2
-
-        // a.rotation.z = Math.sin(a.userData.h* 0.1)
-        // console.log(a.userData.h)
+                // let s
+                // if (a.userData.i < a.userData.layer_length/2){
+                //     s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, 0, Math.PI / 3)
+                // }else{
+                //     s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 3, 0)
+                // }
 
 
-        // a.rotation.z = Math.sin(time) * 0.5  
-        // a.rotation.y = Math.sin(time* 0.5) * 2  + 0.7
-        // a.rotation.x = Math.sin(a.userData.h)
+                a.rotation.y = (s ** gui_obj.y_exponent) * gui_obj.y_multiply + gui_obj.y_add
+
+            }
+            if (a.userData.is_cube) {
+                let s = THREE.MathUtils.mapLinear(
+                    a.userData.i,
+                    0,
+                    a.userData.layer_length,
+                    Math.PI / 2,
+                    0
+                )
+                // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, 0, Math.PI / 3)
+                a.rotation.z = (s ** gui_obj.z_exponent) * gui_obj.z_multiply + gui_obj.z_add
+                a.getWorldPosition(target)
+                centers.push(getCenterPoint(a))
+            }
+        })
+
+        var total = new THREE.Vector3(0, 0, 0);
+        // console.log(total.x)
+        for (let i = 0; i < centers.length; i++) {
+            total.x += centers[i].x
+            total.y += centers[i].y
+            total.z += centers[i].z
+
+        }
+        total.x = total.x / centers.length
+        total.y = total.y / centers.length
+        total.z = total.z / centers.length
+        // console.log(total)
+
+        center_sphere.position.copy(total)
 
 
-
-        // a.rotation.y = time 
-        // a.rotateY(0.0001)
-        // a.rotation.z = time * 0.1
-        // a.rotation.z += 0.01
-
-
-        // })
         renderer.render(scene, camera);
 
         requestAnimationFrame(render);
@@ -372,14 +346,6 @@ function main() {
     }
 
     requestAnimationFrame(render);
-
-
-
-
-
-
-
-
 
 
 
