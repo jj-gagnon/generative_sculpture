@@ -112,7 +112,7 @@ function main() {
 
     first_cube.userData.h = 1
 
-    const total_num_cubes = 2 ** 7
+    const total_num_cubes = 2 ** 6
     // const total_num_cubes = 3
 
     let top_cubes = [first_cube]
