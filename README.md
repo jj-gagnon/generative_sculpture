@@ -1,17 +1,15 @@
-# Version 7
+# Version 8
 
 
 ### Description
-Two major things happened with this version:
-1. I did a lot of work to make sure that the digital sculpture match the very specific dimensions of the planned physical sculpture.<br>
-This was most challenging in being able to precisely place/orient the pivot point for each piece's rotation. 
+There are three things that I implemented in this version:
+1. I implemented the JS library lil-gui to make sliders for the parameters involved in the rotation of the pieces. 
+From the previous version I wrote about the rotation being based on the horizontal location of each piece in the tree within each layer. 
+The sliders determined how much is added, multiplied, and exponentiated to that index, which then the result of that is the rotation of that piece in radians. 
 
-2. I stumbled upon a way to interesting way to code which piece gets which amount of rotation.
-The idea is that in this binary tree, I use the index, from the left to right, of the current layer the piece is on. 
-And this makes a nice gradient of rotation across the tree. 
-A variation of this idea was used in the final sculpture. 
+2. I made an approximation of the center of gravity of the sculpture by average the center of all the pieces, which works when the pieces are the same size.
 
-
+3. I made a very simple ruler to judge how large it will be. 
 
 
 ### Run in your browser

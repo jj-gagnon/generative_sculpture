@@ -132,7 +132,7 @@ function main() {
 
             
             if (cube_counter == 3) {
-                box_size_y = 3
+                // box_size_y = 3
                 console.log('here')
             }
 
@@ -190,7 +190,7 @@ function main() {
 
         } // (let i = 0; i < temp_top_cubes.length; i++) {
 
-        prev_box_size_y = box_size_y
+        // prev_box_size_y = box_size_y
 
     }
 
