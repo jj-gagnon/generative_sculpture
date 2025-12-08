@@ -112,7 +112,7 @@ function main() {
 
     first_cube.userData.h = 1
 
-    const total_num_cubes = 2 ** 6
+    const total_num_cubes = 2 ** 7
     // const total_num_cubes = 3
 
     let top_cubes = [first_cube]
@@ -235,7 +235,8 @@ function main() {
                 // cube_new.rotation.z = s **1.5
                 // cube_new.rotation.z = (Math.PI / 3 - s) **0.2
 
-                cube_new.rotation.z = s ** 1.5 + 0.03
+                // cube_new.rotation.z = s ** 1.5 + 0.03
+                cube_new.rotation.z = s 
 
 
 
