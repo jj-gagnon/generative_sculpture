@@ -403,7 +403,7 @@ function main() {
 
     on_change_function()
     calc_labels()
-    hide_labels_fun()
+    // hide_labels_fun()
 
 
 
