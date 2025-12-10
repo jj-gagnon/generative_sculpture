@@ -1,4 +1,4 @@
-# Step 9 Generating DXF cut file with Python
+# Step 10 Left and right z angles and other features
 
 ### Features
 1. The main feature for this step is that I now can control the left or right branch independently. 
