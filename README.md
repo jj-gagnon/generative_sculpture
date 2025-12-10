@@ -10,4 +10,4 @@ There were two reasons for wanting to do this. One was to be able to better bala
 
 4. Lastly for this step I added a red sphere that represents the center of gravity of the sculpture based on the weights of the different sized pieces, as well as the branch pieces, which are actually heavier than the tube pieces. 
 
-![alt text](./read_me_images/1.png
+![alt text](./read_me_images/1.png)
