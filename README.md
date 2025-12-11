@@ -11,7 +11,7 @@ The first step was using the plasma cutter to create the 64 branch pieces. The p
 
  I had to use the waterjet cutter in the DigiLab to finish the branch pieces. 
 
-![alt text](./read_me_images/2 waterjet.jpg) 
+![alt text](<./read_me_images/2 waterjet.jpg>) 
 
 I cut 128 of the pieces of the steel tube that connect the branches. Each end of these tubes had to be filed and deburred.
 
