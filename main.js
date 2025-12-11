@@ -27,20 +27,39 @@ function main() {
             if (c instanceof SpriteText) {
                 c.visible = !c.visible
 
+
             }
 
 
         })
     }
 
+    function params_to_string() {
+        // saved_data = gui.save()
+        // gui_obj.text_out = JSON.stringify(saved_data)
+        // gui_obj.text_out = saved_data
+        let d = JSON.parse(JSON.stringify(gui_obj))
+        d.text_out = ""
+        d = JSON.stringify(d)
+        d = "let saved_data = JSON.parse('" + d + "')"
+        gui_obj.text_out = d
+    }
+
+
+
+
+
     const gui = new GUI({ width: 700 });
     gui.add(document, 'title');
+
 
     let gui_obj = {
 
 
-        y_multiply: 1.0,
+        y_multiply: 2.0,
+        y_multiply_fine: 0,
         y_exponent: 1.0,
+        y_exponent_fine: 0,
         y_add: 0,
 
         z_multiply_left: 1.0,
@@ -53,24 +72,37 @@ function main() {
 
         hide_labels: hide_labels_fun,
 
-        get_cam_pos: function () {
-            gui_obj.camera_pos = "camera.position.set(" + Math.round(camera.position.x) + ", " + Math.round(camera.position.y) + ", " + Math.round(camera.position.z) + ")"
-                + "; camera.rotation.set(" + camera.rotation.x + ", " + camera.rotation.y + ", " + camera.rotation.z + ")"
+        // get_cam_pos: function () {
+        //     gui_obj.camera_pos = "camera.position.set(" + Math.round(camera.position.x) + ", " + Math.round(camera.position.y) + ", " + Math.round(camera.position.z) + ")"
+        //         + "; camera.rotation.set(" + camera.rotation.x + ", " + camera.rotation.y + ", " + camera.rotation.z + ")"
 
-        },
-        camera_pos: "unkonwn"
+        // },
+
+        y_start: 0,
+        y_start_fine: 0,
+        y_end: 1,
+        y_end_fine: 0,
+        z_right_start: 3,
+        z_right_end: 0,
+        z_left_start: 3,
+        z_left_end: 0,
 
 
-
-
-
-
+        text_out: "unkonwn",
+        save_params: params_to_string
     }
+
+
+
+
+    // {"controllers":{"title":"My first three.js app","text_out":"unkonwn"},"folders":{"Y Axis Rotation":{"controllers":{"y_multiply":2,"y_exponent":1,"y_add":0},"folders":{}},"Right Z Axis Rotation":{"controllers":{"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0},"folders":{}},"Left Z Axis Rotation":{"controllers":{"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0},"folders":{}}}}
 
     const pi = Math.PI
     const y_folder = gui.addFolder('Y Axis Rotation');
     y_folder.add(gui_obj, 'y_multiply', -10, 10).listen()
+    y_folder.add(gui_obj, 'y_multiply_fine', -0.5, 0.5).listen()
     y_folder.add(gui_obj, 'y_exponent', -5, 5).listen()
+    y_folder.add(gui_obj, 'y_exponent_fine', -0.5, 0.5).listen()
     y_folder.add(gui_obj, 'y_add', -2 * pi, pi * 2).listen()
 
     const z_right = gui.addFolder('Right Z Axis Rotation');
@@ -83,11 +115,78 @@ function main() {
     z_left.add(gui_obj, 'z_exponent_left', -5, 5).listen()
     z_left.add(gui_obj, 'z_add_left', -2 * pi, pi * 2).listen()
 
+    const starts_ends = gui.addFolder('start and ends');
+    starts_ends.add(gui_obj, 'y_start', 0, pi).listen()
+    starts_ends.add(gui_obj, 'y_start_fine', -0.2, 0.2).listen()
+
+    starts_ends.add(gui_obj, 'y_end', -3.2, 6.5).listen()
+    starts_ends.add(gui_obj, 'y_end_fine', -0.2, 0.2).listen()
+
+    starts_ends.add(gui_obj, 'z_right_start', 0, pi).listen()
+    starts_ends.add(gui_obj, 'z_right_end', 0, pi).listen()
+    starts_ends.add(gui_obj, 'z_left_start', 0, pi).listen()
+    starts_ends.add(gui_obj, 'z_left_end', 0, pi).listen()
+
 
     gui.add(gui_obj, 'hide_labels').name("Toggle Labels")
+    gui.add(gui_obj, 'save_params')
+    gui.add(gui_obj, 'text_out').listen()
 
-    gui.add(gui_obj, "get_cam_pos")
-    gui.add(gui_obj, "camera_pos").listen()
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_exponent":1,"y_exponent_fine":0,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.31946891450771,"y_start_fine":0,"y_end":0,"y_end_fine":0,"z_right_start":0,"z_right_end":0,"z_left_start":0,"z_left_end":0,"text_out":""}')
+
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_exponent":1,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.34146006308284,"y_end":0,"z_right_start":0.788539756051038,"z_right_end":0,"z_left_start":1.07128309487412,"z_left_end":0,"text_out":""}')
+
+    // let saved_data = JSON.parse('{"y_multiply":2,"y_exponent":0.100000000000001,"y_add":0.213628300444106,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":0.52,"z_exponent_right":1,"z_add_right":0,"y_start":0,"y_end":1,"z_right_start":1.35088484104361,"z_right_end":0,"z_left_start":1.20322998632489,"z_left_end":0,"text_out":""}')
+    // let saved_data = JSON.parse('{"y_multiply":0.800000000000001,"y_exponent":-2.55,"y_add":-0.640884901332317,"z_multiply_left":1.52,"z_exponent_left":1,"z_add_left":0.0628318530717964,"z_multiply_right":0.720000000000001,"z_exponent_right":0.74,"z_add_right":0.0376991118430778,"y_start":0.980176907920016,"y_end":0,"z_right_start":0.958185759344887,"z_right_end":0.512079602535136,"z_left_start":0.983318500573605,"z_left_end":0,"text_out":""}')
+
+
+    // let saved_data = JSON.parse('{"y_multiply":1.36,"y_exponent":0.12,"y_add":0.175929188601029,"z_multiply_left":0.84,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":0.58,"z_exponent_right":1,"z_add_right":0,"y_start":0,"y_end":3.141592653589793,"z_right_start":1.23778750551438,"z_right_end":0.245044226980004,"z_left_start":1.25349546878233,"z_left_end":0,"text_out":""}')
+    // let saved_data = JSON.parse('{"y_multiply":1.32,"y_exponent":0.14,"y_add":0.213628300444106,"z_multiply_left":0.98,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":0.48,"z_exponent_right":1,"z_add_right":0,"y_start":0,"y_end":3.141592653589793,"z_right_start":1.42314147207618,"z_right_end":0.245044226980004,"z_left_start":1.59278747537003,"z_left_end":0,"text_out":""}')
+
+    // let saved_data = JSON.parse('{"y_multiply":1.28,"y_exponent":1,"y_add":-0.967610537305656,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.0775662801813,"y_end":0,"z_right_start":0.618893752757189,"z_right_end":0,"z_left_start":1.19694680101771,"z_left_end":0,"text_out":""}')
+
+    // let saved_data = JSON.parse('{"y_multiply":1.12,"y_exponent":5,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.53309721495182,"y_end":0,"z_right_start":0.863937979737193,"z_right_end":0,"z_left_start":1.57,"z_left_end":0,"text_out":""}')
+
+    // let saved_data = JSON.parse('{"y_multiply":1.12,"y_exponent":5,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.53309721495182,"y_end":0,"z_right_start":0.863937979737193,"z_right_end":0,"z_left_start":1.57,"z_left_end":0,"text_out":""}')
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_exponent":4.97,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_end":2.6103,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":0,"text_out":""}')
+
+
+
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_exponent":4.97,"y_add":0.175929188601029,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_end":2.58,"z_right_start":1.03358398303104,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.03358398303104,"text_out":""}')
+
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_exponent":2.51,"y_add":0.087964594300515,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_end":2.58,"z_right_start":1.57079632679,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_exponent":2.51,"y_add":0.087964594300515,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_end":3.0371,"z_right_start":1.57079632679,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+
+    // zigzag
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_exponent":4.97,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_end":2.58,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":0,"text_out":""}')
+
+    // 3d zig zag
+    // let saved_data = JSON.parse('{"y_multiply":1.28,"y_exponent":1,"y_add":-0.967610537305656,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.99805292768311,"y_end":0,"z_right_start":0.502654824574367,"z_right_end":0,"z_left_start":1.54252199291259,"z_left_end":0,"text_out":""}')
+
+    // square spiral with siz zag
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_exponent":4.97,"y_exponent_fine":0.011,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1.26,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":0,"y_end":2.58,"y_end_fine":0,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_exponent":4.97,"y_exponent_fine":0.011,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1.26,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":-0.004,"y_end":2.58,"y_end_fine":0.251,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_multiply_fine":0,"y_exponent":4.97,"y_exponent_fine":0,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1.26,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":-0.00359999999999999,"y_end":2.58,"y_end_fine":0.00839999999999999,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_multiply_fine":0,"y_exponent":4.97,"y_exponent_fine":0.011,"y_add":0,"z_multiply_left":1,"z_exponent_left":0.99,"z_add_left":0,"z_multiply_right":1.26,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":-0.004,"y_end":2.6103,"y_end_fine":-0.028,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+// let saved_data = JSON.parse('{"y_multiply":1,"y_multiply_fine":0,"y_exponent":4.97,"y_exponent_fine":0.011,"y_add":0,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":0,"y_end":1.9216,"y_end_fine":0.1268,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+// let saved_data = JSON.parse('{"y_multiply":1,"y_multiply_fine":0,"y_exponent":4.97,"y_exponent_fine":0.011,"y_add":0,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":0,"y_end":2.5618,"y_end_fine":0.02,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+// let saved_data = JSON.parse('{"y_multiply":1,"y_multiply_fine":0,"y_exponent":4.97,"y_exponent_fine":-0.003,"y_add":0,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":1.08,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":0,"y_end":2.5618,"y_end_fine":0.0272,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+// let saved_data = JSON.parse('{"y_multiply":1,"y_multiply_fine":0,"y_exponent":4.97,"y_exponent_fine":0,"y_add":0,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":1.08,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":0,"y_end":2.5618,"y_end_fine":0.0244,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+
+// let saved_data = JSON.parse('{"y_multiply":1,"y_multiply_fine":0,"y_exponent":4.97,"y_exponent_fine":-0.003,"y_add":0,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":1.22,"z_exponent_right":0.87,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":0,"y_end":4.0362,"y_end_fine":0.0976,"z_right_start":0.813672497279756,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+    // let saved_data = JSON.parse('{"y_multiply":1,"y_multiply_fine":0,"y_exponent":4.97,"y_exponent_fine":0,"y_add":0,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":1,"z_exponent_right":1,"z_add_right":0,"y_start":1.57707951210208,"y_start_fine":-0.00700000000000001,"y_end":2.58,"y_end_fine":0.251,"z_right_start":0.876504350351552,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+
+
+    let saved_data = JSON.parse('{"y_multiply":1,"y_multiply_fine":0,"y_exponent":4.97,"y_exponent_fine":0,"y_add":0,"z_multiply_left":1,"z_exponent_left":1,"z_add_left":0,"z_multiply_right":1.08,"z_exponent_right":1,"z_add_right":0,"y_start":1.57079632679,"y_start_fine":0,"y_end":2.5618,"y_end_fine":0.02459,"z_right_start":1,"z_right_end":0,"z_left_start":1.57079632679,"z_left_end":1.57079632679,"text_out":""}')
+
+
+    for (let key of Object.keys(saved_data)) {
+        gui_obj[key] = saved_data[key]
+    }
+
+
 
 
     function on_change_function() {
@@ -95,21 +194,33 @@ function main() {
 
         first_cube.traverse(function (a) {
             if (a instanceof THREE.Group) {
-                // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 2.8, 0)
-                let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 3, 0)
 
-                a.rotation.y = (s ** gui_obj.y_exponent) * gui_obj.y_multiply + gui_obj.y_add
+                // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 3, 0)
+                // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, gui_obj.y_start, Math.PI / gui_obj.y_end)
+                let s = THREE.MathUtils.mapLinear(
+                    a.userData.i,
+                    0,
+                    a.userData.layer_length,
+                    gui_obj.y_start + gui_obj.y_start_fine,
+                    gui_obj.y_end + gui_obj.y_end_fine
+                )
+
+                a.rotation.y = (s ** (gui_obj.y_exponent + gui_obj.y_exponent_fine)) * (gui_obj.y_multiply + gui_obj.y_multiply_fine) + gui_obj.y_add
 
             }
             if (a.userData.is_cube) {
                 if (a.userData.is_right_cube) {
-                    // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 2.8, 0)
-                    let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 3, 0)
-                    // a.rotation.z = (s ** gui_obj.z_exponent) * gui_obj.z_multiply + gui_obj.z_add
+                    // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 3, 0)
+                    // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, 0, Math.PI / 3)
+                    let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, gui_obj.z_right_start, gui_obj.z_right_end)
+
+
                     a.rotation.z = (s ** gui_obj.z_exponent_right) * gui_obj.z_multiply_right + gui_obj.z_add_right
                 } else {
-                    // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 2.8, 0)
-                    let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 3, 0)
+
+                    // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, Math.PI / 3, 0)                    
+                    // let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, 0, Math.PI / 3)
+                    let s = THREE.MathUtils.mapLinear(a.userData.i, 0, a.userData.layer_length, gui_obj.z_left_start, gui_obj.z_left_end)
                     a.rotation.z = (s ** gui_obj.z_exponent_left) * gui_obj.z_multiply_left + gui_obj.z_add_left
                 }
 
@@ -139,6 +250,11 @@ function main() {
                     let r = THREE.MathUtils.radToDeg(c.parent.rotation.y)
                     r = Math.round(r)
                     c.text = r.toString()
+                }
+
+                if (c.text === "3"){
+                    // console.log("hdhdhf")
+                    c.textHeight = 5
                 }
 
 
@@ -173,18 +289,21 @@ function main() {
     const far = 1000;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
+    let cam_s = 2
+    // camera.position.z = 30 * cam_s
+    // camera.position.y = 20* cam_s
+    // camera.position.x = -50 * cam_s
 
-    camera.position.z = 30
-    camera.position.y = 20
-    camera.position.x = 0
+    camera.position.z = 80
+    camera.position.y = 40
+    camera.position.x = 30
 
-    // camera.position.set(8, -24, 63)
-    // camera.position.set(6, 24, 40); camera.rotation.set(-0.3143556007192689, 0.12718725355265373, 0.04121849207024992)
 
 
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    // controls.target = new THREE.Vector3(0, camera.position.y, 0)
+    // controls.target = new THREE.Vector3(camera.position.x / -2, camera.position.y / 2, 0)
+    controls.target = new THREE.Vector3(camera.position.x, camera.position.y / 2, 0)
 
     const scene = new THREE.Scene();
 
@@ -231,7 +350,10 @@ function main() {
     // first_cube.userData.layer = layer_counter
     // layer_counter++
 
+    scene.userData.tube_length = 10
+
     first_cube.userData.cube_counter_i = 0
+    
     cube_counter++
 
     let prev_box_size_y = 6
@@ -252,6 +374,15 @@ function main() {
     //     6,
     //     6,
     //     6,
+    // ]
+
+    // tube_lengths = [
+    //     5,
+    //     5,
+    //     5,
+    //     5,
+    //     5,
+    //     5,
     // ]
     let layer_counter = 0
 
@@ -274,6 +405,12 @@ function main() {
 
 
             let g = new THREE.Group()
+
+            // let branch_piece_g = new THREE.BoxGeometry(4,box_size_x * 2,box_size_z)
+            // let branch_piece = new THREE.Mesh(branch_piece_g, material)
+            // branch_piece.position.y = box_size_y + 0.8
+            // g.add(branch_piece)
+
             // let s
             // s = THREE.MathUtils.mapLinear(i, 0, temp_top_cubes.length, Math.PI / 2.8, 0)
             // s = THREE.MathUtils.mapLinear(i, 0, temp_top_cubes.length, Math.PI / 3, 0)
@@ -291,7 +428,7 @@ function main() {
                 let cube_new = new THREE.Mesh(geo, material)
                 cube_new.userData.i = i
                 cube_new.userData.layer_length = temp_top_cubes.length
-                // cube_new.userData.layer = layer_counter
+                cube_new.userData.tube_length = box_size_y
                 cube_new.userData.is_cube = true
                 cube_new.userData.weight = tube_weight_per_cm * box_size_y
 
@@ -302,9 +439,12 @@ function main() {
 
                 cube_new.userData.cube_counter_i = cube_counter
 
-                cube_new.position.y = prev_box_size_y + box_size_x / 2
+                cube_new.position.y = prev_box_size_y + box_size_x /// 2
 
-                cube_new.geometry.translate(box_size_x / 2, box_size_y / 2, 0)
+                // cube_new.geometry.translate(box_size_x / 2 - 0.8, box_size_y / 2, 0)
+                // cube_new.geometry.translate((box_size_x / 1), box_size_y / 2, 0)
+                cube_new.geometry.translate(box_size_x/2, box_size_y / 2, 0)
+                // cube_new.geometry.translate(box_size_x, box_size_y / 2, 0)
 
                 if (b == 0) {
                     cube_new.position.x = box_size_x * -1
@@ -313,6 +453,11 @@ function main() {
                     cube_new.rotation.y = pi
                 }
 
+                let branch_piece_g = new THREE.BoxGeometry(4, box_size_x * 2, box_size_z)
+                let branch_piece = new THREE.Mesh(branch_piece_g, material)
+                branch_piece.position.y = box_size_y + 2.5
+
+                g.add(branch_piece)
 
                 // cube_new.rotation.z = s
                 // cube_new.userData.z_rot = cube_new.rotation.z
@@ -371,12 +516,12 @@ function main() {
     let ruler_z_length = 13
     let ruler_x_length = 11
 
-
+    box_size_y = 6
     let ruler_x_geo = new THREE.BoxGeometry(box_size_x, box_size_y * ruler_z_length, box_size_z)
     let ruler_x = new THREE.Mesh(ruler_x_geo, material)
 
 
-    ruler_x.position.y = 30
+    ruler_x.position.y = 20
     ruler_x.rotation.z = pi / 2
     ruler_x.rotation.y = pi / 2
 
@@ -384,7 +529,7 @@ function main() {
     let ruler_y_geo = new THREE.BoxGeometry(box_size_x, box_size_y * ruler_x_length, box_size_z)
     let ruler_y = new THREE.Mesh(ruler_y_geo, material)
 
-    ruler_y.position.y = 30
+    ruler_y.position.y = 20
     ruler_y.rotation.z = pi / 2
     // ruler_x.rotation.y = pi/2
 
@@ -394,20 +539,36 @@ function main() {
 
 
 
-    first_cube.traverse(function (a) {
-        if (a instanceof THREE.Group) {
-            // a.userData.left = a.children[0].userData.layer
-            // a.userData.right = a.children[1].userData.layer
-            // a.userData.center = a.parent.userData.layer
+    // first_cube.traverse(function (a) {
+    //     if (a instanceof THREE.Group) {
+    //         // a.userData.left = a.children[0].userData.layer
+    //         // a.userData.right = a.children[1].userData.layer
+    //         // a.userData.center = a.parent.userData.layer
 
-            a.userData.left = a.children[0].userData.cube_counter_i
-            a.userData.right = a.children[1].userData.cube_counter_i
-            a.userData.center = a.parent.userData.cube_counter_i
-        }
-    })
+    //         a.userData.left = a.children[0].userData.cube_counter_i
+    //         a.userData.right = a.children[1].userData.cube_counter_i
+    //         a.userData.center = a.parent.userData.cube_counter_i
+    //     }
+    // })
 
+    // let instructions = []
 
-    let instructions = []
+    // first_cube.traverse(function (a) {
+    //     if (a instanceof THREE.Group) {
+    //         instructions.push({
+    //             left_label: a.children[0].userData.cube_counter_i,
+    //             right_label: a.children[1].userData.cube_counter_i,
+    //             center_label: a.parent.userData.cube_counter_i,
+    //             right_angle: a.children[0].rotation.z,
+    //             left_angle: a.children[1].rotation.z,
+    //             // top_length:
+    //             // bottom_length:
+
+    //         })
+    //     }
+    // })
+    // console.log(instructions)
+
 
     first_cube.traverse(function (a) {
         if (a instanceof THREE.Group) {
@@ -415,7 +576,7 @@ function main() {
             let offest = 2
             let text_height = 0.5
 
-            let t_left = new SpriteText(a.userData.left, 10);
+            let t_left = new SpriteText(a.children[0].userData.cube_counter_i, 10);
 
             t_left.color = "black"
             t_left.textHeight = text_height
@@ -424,7 +585,9 @@ function main() {
             t_left.depthTest = false
             a.add(t_left)
 
-            let t_right = new SpriteText(a.userData.right, 10);
+            // let t_right = new SpriteText(a.userData.right, 10);
+            let t_right = new SpriteText(a.children[1].userData.cube_counter_i, 10);
+            
             t_right.color = "black"
             t_right.textHeight = text_height
             t_right.position.set(offest, box_size_y + offest, 0)
@@ -432,7 +595,8 @@ function main() {
             t_right.depthTest = false
             a.add(t_right)
 
-            let t_center = new SpriteText(a.userData.center, 10);
+            // let t_center = new SpriteText(a.userData.center, 10);
+            let t_center = new SpriteText(a.parent.userData.cube_counter_i, 10);
             t_center.color = "black"
             t_center.textHeight = text_height
             t_center.renderOrder = -1
@@ -490,17 +654,23 @@ function main() {
 
 
             // instructions.push({
-            // left: a.userData.left,
-            // right: a.userData.right,
-            // center: a.userData.center,
-            // angle: a.children[0].userData.z_rot
+            //     left_label: a.userData.left,
+            //     right_label: a.userData.right,
+            //     center_label: a.userData.center,
+            //     right_angle: a.children[0].userData.z_rot,
+            //     left_angle: a.children[1].userData.z_rot,
+            //     // top_length:
+            //     // bottom_length:
+
             // })
         }
     })
 
+    // a.userData.left = a.children[0].userData.cube_counter_i
+    //         a.userData.right = a.children[1].userData.cube_counter_i
+    //         a.userData.center = a.parent.userData.cube_counter_i
 
-
-    // console.log(instructions)
+    
 
 
 
@@ -510,6 +680,34 @@ function main() {
     on_change_function()
     calc_labels()
     hide_labels_fun()
+
+
+
+     let instructions = []
+
+    first_cube.traverse(function (a) {
+        if (a instanceof THREE.Group) {
+            let temp_top_length = 0 
+            if (a.children[0].userData.tube_length == 3){
+                temp_top_length = 4
+            }else{
+                temp_top_length = a.children[0].userData.tube_length
+            }
+
+            instructions.push({
+                left_label: a.children[1].userData.cube_counter_i,
+                right_label: a.children[0].userData.cube_counter_i,
+                center_label: a.parent.userData.cube_counter_i,
+                right_angle: a.children[0].rotation.z,
+                left_angle: a.children[1].rotation.z,
+                top_length: temp_top_length,
+                bottom_length:a.parent.userData.tube_length,
+
+            })
+        }
+    })
+    console.log(instructions)
+    // console.log(first_cube.parent.userData.tube_length)
 
 
 
