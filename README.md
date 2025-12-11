@@ -4,7 +4,7 @@
 This was a long and arduous process in the metal shop. 
 The first step was using the plasma cutter to create the 64 branch pieces. The plasma cutter was glitching and struggling and after two days only was able to cut two thirds of the branch pieces.
 
-![alt text](./read_me_images/1 plasma cut.jpg)
+![alt text]("./read_me_images/1 plasma cut.jpg")
 
  I had to use the waterjet cutter in the DigiLab to finish the branch pieces. 
 
