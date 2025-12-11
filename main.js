@@ -245,14 +245,14 @@ function main() {
         3,
     ]
 
-     tube_lengths = [
-        6,
-        6,
-        6,
-        6,
-        6,
-        6,
-    ]
+    //  tube_lengths = [
+    //     6,
+    //     6,
+    //     6,
+    //     6,
+    //     6,
+    //     6,
+    // ]
     let layer_counter = 0
 
     let tube_weight_per_cm = 2.17
