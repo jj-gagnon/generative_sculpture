@@ -4,7 +4,11 @@ The following text demonstrates the breadth of planning I was thinking about at 
 
 I started out with a very vague notion of what I wanted to do, which was to programmatically generate a virtual sculpture, which would then be made with physical material. Most of the beginning of the semester was spent pursuing different possible ideas. 
 
+
+
 ---
+
+
 
 #### Way to change material for natural tree structure
 for tree structure idea. 
