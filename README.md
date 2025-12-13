@@ -4,9 +4,11 @@ There are 3 modes that the sculpture can be in base in the length of the trunk.
 
 1. Long trunk with floor stand:
 This was the original idea, but ended up being my least favorite
+
 ![alt text](./read_me_images/1.jpg)
 
 2. Short trunk for table or plinth
+
 ![alt text](./read_me_images/2.jpg)
 
 3. No trunk. For a table or plinth. 
