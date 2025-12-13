@@ -21,11 +21,6 @@ I sand blasted the 64 pieces and 128 connecting pieces (before I cut them).
 
 Then taking all those pieces, i used the model on my computer to check each angle that the pieces are put together and then used a protractor to measure the angle and then hammer the tubes into the branch piece. 
 
+![alt text](<./read_me_images/4 with computer.jpg>) 
+
 The final step was to make a the "trunk" and the base plate for the stand. I welded on pieces of a branch onto the the base plate and hammered it all together. 
-
-
-
-
-
-
-![alt text](./read_me_images/1.png)
