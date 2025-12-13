@@ -1,12 +1,17 @@
 # Step 9 Generating DXF cut file with Python
 
-### Description
-I exported all the angles for each piece from the ThreeJS program into a JSON file. 
+There are 3 modes that the sculpture can be in base in the length of the trunk. 
 
-This python script takes that JSON file and generates a cut path for each branch piece. It also puts the label onto the branch piece. 
+1. Long trunk with floor stand:
+This was the original idea, but ended up being my least favorite
+![alt text](./read_me_images/1.jpg)
 
-![alt text](./read_me_images/1.png)
-
-Here is a picture showing how the labels are used in seeing which branch pieces connect to which branch pieces. The matching numbers have to be together
-
+2. Short trunk for table or plinth
 ![alt text](./read_me_images/2.jpg)
+
+3. No trunk. For a table or plinth. 
+This one is my favorite. It's a bit more confusing and inviting. The shadows are really nice as well. 
+
+![alt text](./read_me_images/3.jpg)
+
+![alt text](./read_me_images/4.jpg)
