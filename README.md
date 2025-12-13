@@ -9,4 +9,4 @@ This python script takes that JSON file and generates a cut path for each branch
 
 Here is a picture showing how the labels are used in seeing which branch pieces connect to which branch pieces. The matching numbers have to be together
 
-![alt text](./read_me_images/2.png)
+![alt text](./read_me_images/2.jpg)
