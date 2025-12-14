@@ -1,4 +1,4 @@
-# Version 7
+# Step 8: Making the digital model meet the physical specifications
 
 
 ### Description
