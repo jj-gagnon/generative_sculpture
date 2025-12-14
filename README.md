@@ -1,4 +1,4 @@
-# Step 9 Generating DXF cut file with Python
+# Step 15: Final sculpture
 
 There are 3 modes that the sculpture can be in base in the length of the trunk. 
 
