@@ -1,5 +1,4 @@
-# Version 4
-
+# Step 6: Dynamic scale
 
 ### Description
 Able to scale each piece by a percent of its parent piece. 
