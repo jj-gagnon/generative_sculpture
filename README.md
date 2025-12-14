@@ -1,4 +1,5 @@
-# Version 1
+# Step 3: Randomly placing pieces
+
 ![image info](./images/first.png)
 
 
