@@ -45,7 +45,7 @@ function main() {
     let w = 1080 + 650
     let h = 1920 - 100
     let scale = 0.5
-    renderer.setSize(w * scale, h * scale, true)
+    // renderer.setSize(w * scale, h * scale, true)
 
 
 
