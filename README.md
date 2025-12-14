@@ -1,4 +1,5 @@
-# Version 2
+# Step 4: Deterministic placement of pieces
+
 ![image info](./read_me_images/simple.png)
 
 
