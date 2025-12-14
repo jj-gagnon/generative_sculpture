@@ -18,11 +18,5 @@ Instead of randomly placing blocks and branching sometimes, this model will bran
 ![image info](./read_me_images/advanced_3.png)
 
 ### Run in your browser
-LINK to interesting one. 
-parameters
-
-	
-### Examples
-
-
+[Link to view in your browser](https://step4deterministic.netlify.app/)
 
