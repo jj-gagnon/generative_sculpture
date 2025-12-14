@@ -1,4 +1,4 @@
-# Step soemthing
+# Step 2: Trying Python's Open3D library
 
 
 ### Description
