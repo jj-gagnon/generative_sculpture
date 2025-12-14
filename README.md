@@ -1,4 +1,4 @@
-## Step 1: Lots of thinking
+# Step 1: Lots of thinking
 
 ### Description
 
