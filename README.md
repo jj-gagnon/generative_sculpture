@@ -7,7 +7,8 @@ For some reason the pieces need to be scaled on all three axis equally otherwise
 
 
 ### Run in your browser
-Put link here. 
+[Link to view in your browser](https://step6dynamicscale.netlify.app/)
+
 
 ### Examples
 
