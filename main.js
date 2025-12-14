@@ -64,7 +64,7 @@ function main() {
     let w = 1080 + 650
     let h = 1920 - 100
     let scale = 0.5
-    renderer.setSize(w * scale, h * scale, true)
+    // renderer.setSize(w * scale, h * scale, true)
     // renderer.setClearColor(new THREE.Color(1, 1, 1))
 
 
@@ -73,7 +73,7 @@ function main() {
     const near = 0.1;
     const far = 1000;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.z = 200
+    camera.position.z = 250
     camera.position.x = camera.position.z / 2
     camera.position.y = camera.position.z / 2
 
@@ -83,7 +83,7 @@ function main() {
 
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.target = new THREE.Vector3(0, 100, 0)
+    controls.target = new THREE.Vector3(0, camera.position.y /3, 0)
 
 
 
@@ -185,12 +185,10 @@ function main() {
             cube_new.userData.h = cube_counter
             top_cube.add(cube_new)
 
-            // cube_new.rotation.z = rot
-            // cube_new.rotation.y += rot * 
-            // cube_new.rotation.y -= rot * 
-            // cube_new.rotation.y += rot + 10
-            cube_new.rotation.x += pi * 0.01
-            // cube_new.rotation.y = pi * 0.001
+            
+            // cube_new.rotation.x += pi * 0.01
+            cube_new.rotation.x += pi /20
+            
 
 
 
@@ -211,9 +209,10 @@ function main() {
 
             branch_cube.position.y = box_size_y
 
+            // branch_cube.rotation.z = rot * -1
             branch_cube.rotation.z = rot * -1
-            // branch_cube.rotation.y -= rot * 2
-            branch_cube.rotation.y = pi / 4
+            
+            // branch_cube.rotation.y = pi /2
             // branch_cube.rotation.y += rot
 
             // branch_cube.rotation.z = rot * 1
@@ -256,7 +255,7 @@ function main() {
 
         first_cube.traverse(function (a) {
 
-            let s = Math.sin(time) * 0.001
+            let s = (Math.cos(time) * 0.002) 
             a.rotateX(s)
             a.rotateZ(s)
             a.rotateY(s)
