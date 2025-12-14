@@ -17,18 +17,10 @@ Each branch gets a new random color.
 - Length of each branch
 
 ### Run in your browser
-LINK
-parameters
-const total_num_cubes = 900
-    let desired_num_branches = 8
-    let desired_branch_length = total_num_cubes/desired_num_branches/2
-	
-- Total blocks = 900
-- Number of branches = 8
-- branch length = total blocks / num_branches / 2 = 56
+[Link to view in your browser](https://step3randomplacement.netlify.app/)
 
 	
-### Examples
+
 
 
 
