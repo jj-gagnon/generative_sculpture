@@ -1,3 +1,5 @@
+## Step 1: Lots of thinking
+
 ### Description
 
 The following text demonstrates the breadth of planning I was thinking about at the start of this project. 
