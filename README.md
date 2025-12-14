@@ -1,4 +1,4 @@
-# Version 11
+# Step 10: Adding labels for angles and piece IDs
 
 
 ### Features
