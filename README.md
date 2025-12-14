@@ -1,4 +1,4 @@
-# Step 11 Fine Tuning / Finalizing design
+# Step 12: Fine Tuning / Finalizing design
 
 ### Description
 This is the final version used to decide the final design of the sculpture. 
