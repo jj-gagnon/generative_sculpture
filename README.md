@@ -1,4 +1,4 @@
-# Step 10 Left and right z angles and other features
+# Step 11: Independent left and right z-axis angles
 
 ### Features
 1. The main feature for this step is that I now can control the left or right branch independently. 
