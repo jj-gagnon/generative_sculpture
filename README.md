@@ -1,4 +1,4 @@
-# Step 9 Generating DXF cut file with Python
+# Step 13: Generating DXF cut file with Python
 
 ### Description
 I exported all the angles for each piece from the ThreeJS program into a JSON file. 
