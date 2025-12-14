@@ -1,10 +1,10 @@
-# Version 1
+# Step 5: Animation
 
 Put link here
 
 
 ### Description
-Not exactly relavent to the sculptural output of this project, but I was just too curious to see what these shapes would look like if animated. 
+Not exactly relevant to the sculptural output of this project, but I was just too curious to see what these shapes would look like if animated. 
 
 
 ### Features
