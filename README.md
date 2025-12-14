@@ -1,4 +1,4 @@
-# Step 12 Assembly
+# Step 14: Assembly
 
 ### Description
 This was a long and arduous process in the metal shop. 
